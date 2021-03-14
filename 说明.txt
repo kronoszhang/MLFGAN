@@ -1,0 +1,12 @@
+1. Use OpenPose to entract pose image from Market or Market+Duke+CUHK03
+2. Use pose image and pedestrian image to train PNGAN
+3. Use PNGAN to generate Pose-Normalized training image of Market
+4. Random choose 30% generate image and all raw training image as the final training image, then training MLFGAN model
+5. How to Training:
+   - cd script/experiment
+   - python train.py
+6. Our training is three stages. 
+    - First, train base branch;   (for basic recongization)
+    - Then, fix base branch and train alignment branch;  (for saving training time) 
+    - Finally, open these two branch for training. (base branch can not guide alignment any more, open they for further training)
+7. Test at raw test image of market, you can pose-normalized test image in real world, but not in here for fair compariation
